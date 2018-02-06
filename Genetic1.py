@@ -11,14 +11,21 @@ class ThrownToTheBoard():
         self.board = pBoard # current board state, NOT the idealized board
         self.color = pColor # which color stones you're placing down
         self.boardSize = pBoardSize # 19x19 is traditional size
-        self.ideal = pIdeal # what we're trying to attain
         self.path = pPath   # order of stones to play in
 
 
     # Takes 2 parents and produces an offspring board
     def mate(self, parent1, parent2):
+        # since everything else is random, why not this?
 
-        self.board 
+        # Randomly choose a crossover point
+        if random.random() <= 0.5:
+            k = random.randint(len(parent1.board))
+            self.board = parent1.board[0:k+1] + parent2.board[k:]
+
+        else:
+            k = random.randint(len(parent2.board))
+            self.board = parent2.board[0:k+1] + parent2.board[k:]
 
         self.mutate()
 
