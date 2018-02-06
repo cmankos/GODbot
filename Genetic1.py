@@ -15,32 +15,12 @@ class ThrownToTheBoard():
         self.path = pPath   # order of stones to play in
 
 
-    # Rewrite, takes in 2 parents' paths
     # Takes 2 parents and produces an offspring board
     def mate(self, parent1, parent2):
 
-        for x in range(self.boardSize):
-            for y in range(self.boardSize):
-                if random.random() >= 0.5:
-                    self.path[x][y] = parent1[x][y]
-                else:
-                    self.path[x][y] = parent2[x][y] + 0.5
-
-        self.rescale()
+        self.board 
 
         self.mutate()
-
-    # Terribly inefficient. Someone magic this away. It disgusts me
-    # Takes the board and puts rearranges its elements into the natural numbers
-    def rescale(self):
-
-        i = 501
-
-        # makes all 0's 500 so they aren't the min, 500 chosen because 500 > 361
-        for x in range(self.boardSize):
-            for y in range(self.boardSize):
-                if self.path[x][y] == 0:
-                    self.path[x][y] = 500
 
 
     # Randomly switches the board's squares to something else
