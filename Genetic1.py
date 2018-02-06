@@ -1,4 +1,6 @@
 """
+THESE ARE OUR TEENSY WEENSIES GODS
+
 First genetic algorithm for the go board. Very fast, very loose, rewarding based on how close a particular board
 reaches a desired end board state (chosen from a database)
 """
@@ -33,7 +35,7 @@ class ThrownToTheBoard():
     # Randomly switches the board's squares to something else
     def mutate(self):
 
-        MUTATE = .0001           # mutation rate
+        MUTATE = .0361           # mutation rate
         if random.random() < MUTATE:
             # Chris cross!
             i = random.randrange(0, len(self.path))
