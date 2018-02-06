@@ -8,8 +8,8 @@ BATTLEROYAL = 100000 # How many times each generation fights. Probably high but 
 
 
 def main():
-
     teensies = []   # list of our bots
+
 
     # Adds POP number of bots to our list
     for i in range(POP):
@@ -19,10 +19,15 @@ def main():
         fight(teensies(random.randint(0, POP)), teensies(random.randint(0, POP)))
         # Would like to change score so it subtracts score from loser as well? Then multiplying doesn't work
 
-    mate()
+    mate(teensies)
 
     return 0
 
+def mate(teensies):
+    newteensies = []
+    teensies.sort(key=lambda x: x.get_fitness())
+    for x in range(POP):
+        
 
 
 

@@ -68,6 +68,12 @@ class ThrownToTheBoard:
             modifier = -1
         self.score.append(int(new_score["score"][1:]) * modifier)
 
+    def get_fitness(self):
+        total = 0
+        for s in self.score:
+            total += s
+        return total/len(self.score)
+
         
 
 
