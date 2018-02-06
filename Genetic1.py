@@ -56,7 +56,7 @@ class ThrownToTheBoard:
     # Compares attained board against idealized board - 1 for match, -1 for miss, 0 else)
     def add_score(self, new_score):
         modifier = 1
-        ifnew_score["color"] != self.color:
+        if new_score["color"] != self.color:
             modifier = -1
         self.score.append(int(new_score["score"][1:]) * modifier)
 
