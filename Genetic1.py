@@ -27,12 +27,12 @@ class ThrownToTheBoard():
     def mutate(self):
 
         MUTATE = .0001           # mutation rate
-        STONES = [0, 1, 2]
-
-        for x in range(self.boardSize):
-            for y in range(self.boardSize):
-                if random.random() < MUTATE:
-                    self.board[x][y] = random.choice(STONES)
+        if random.random() < MUTATE:
+            # Chris cross!
+            i = random.randrange(0, len(self.path))
+            j = random.randrange(0, len(self.path))
+            # One hop this time
+            self.path[i], self.path[j] = self.path[j], self.path[i]
 
 
 
