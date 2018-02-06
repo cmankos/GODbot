@@ -5,13 +5,12 @@ reaches a desired end board state (chosen from a database)
 
 import random
 
-class ThrownToTheBoard():
+class ThrownToTheBoard:
 
     def __init__(self, pBoard, pColor, pPath, pIdeal, pBoardSize = 19):
         self.board = pBoard # current board state, NOT the idealized board
         self.color = pColor # which color stones you're placing down
         self.boardSize = pBoardSize # 19x19 is traditional size
-        self.ideal = pIdeal # what we're trying to attain
         self.path = pPath   # order of stones to play in
 
 
@@ -25,9 +24,12 @@ class ThrownToTheBoard():
 
     # Randomly switches the board's squares to something else
     def mutate(self):
-
-        MUTATE = .0001           # mutation rate
-        if random.random() < MUTATE:
+        """
+        Mutates the dna by randomly swapping two elements of the path
+        :return: None
+        """
+        mutate = .0001           # mutation rate
+        if random.random() < mutate:
             # Chris cross!
             i = random.randrange(0, len(self.path))
             j = random.randrange(0, len(self.path))
@@ -37,13 +39,9 @@ class ThrownToTheBoard():
 
 
     # Compares attained board against idealized board - 1 for match, -1 for miss, 0 else)
-    def score(self, scoreboard):
+    def score(self, score):
+        
 
-        for x in range(self.boardSize):
-            for y in range(self.boardSize):
-                k = scoreboard[x][y]
-                # If the board's stone matches the idealized board's,
-                if self.board[x][y] == k and self.color == scoreboard[x][y]:
 
 
 
